@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="32" fill="#fffdf9" />
+  <circle cx="32" cy="32" r="27" fill="none" stroke="#a7604b" stroke-width="2" />
+  <text
+    x="32"
+    y="38"
+    fill="#7d4435"
+    font-family="Georgia, serif"
+    font-size="19"
+    font-weight="700"
+    text-anchor="middle"
+  >MR</text>
+</svg>
