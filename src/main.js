@@ -37,7 +37,6 @@ const translations = {
       contact: 'Kontakt',
     },
     cta: {
-      checkAvailability: 'Direkt Kontakt aufnehmen',
       whatsapp: 'WhatsApp schreiben',
       call: '0176 23488396',
     },
@@ -62,7 +61,7 @@ const translations = {
         },
         {
           title: 'Wenn dein Baby bereits da ist',
-          text: 'Du benötigst Unterstützung nach der Geburt? Beschreibe kurz deine Situation, damit Marina prüfen kann, ob eine Betreuung möglich ist.',
+          text: 'Du benötigst Unterstützung nach der Geburt? Beschreibe kurz deine Situation, damit ich prüfen kann, ob eine Betreuung möglich ist.',
         },
         {
           title: 'Wenn später neue Fragen entstehen',
@@ -138,7 +137,6 @@ const translations = {
       step2Alt: 'Atmosphärisches Motiv einer Schwangeren',
       step3Alt: 'Atmosphärisches Motiv eines Neugeborenen',
       step4Alt: 'Atmosphärisches Mutter-Kind-Motiv',
-      aboutAlt: 'Hände falten Babykleidung auf einem Leinentuch',
       supportAlt: 'Hand legt ein Smartphone neben gefaltete Babywäsche',
     },
   },
@@ -176,7 +174,6 @@ const translations = {
       contact: 'Контакты',
     },
     cta: {
-      checkAvailability: 'Связаться напрямую',
       whatsapp: 'Написать в WhatsApp',
       call: '0176 23488396',
     },
@@ -201,7 +198,7 @@ const translations = {
         },
         {
           title: 'Если ваш малыш уже родился',
-          text: 'Вам нужна поддержка после родов? Кратко опишите вашу ситуацию, чтобы Марина могла проверить, возможно ли сопровождение.',
+          text: 'Вам нужна поддержка после родов? Кратко опишите вашу ситуацию, чтобы я могла проверить, возможно ли сопровождение.',
         },
         {
           title: 'Если позже возникнут новые вопросы',
@@ -278,7 +275,6 @@ const translations = {
       step2Alt: 'Атмосферное изображение беременной женщины',
       step3Alt: 'Атмосферное изображение новорождённого',
       step4Alt: 'Атмосферное изображение мамы с ребёнком',
-      aboutAlt: 'Руки складывают детскую одежду на льняной ткани',
       supportAlt: 'Рука кладёт смартфон рядом со сложенной детской тканью',
     },
   },

@@ -13,6 +13,14 @@ export const feedingGroups = [
   { key: 'breastfeeding', heading: 'Stillberatung & Milchbildung', indices: [0, 1, 2, 3, 4, 5, 9] },
   { key: 'feeding', heading: 'Flaschenernährung, Abstillen & Beikost', indices: [6, 7, 8, 10] },
 ]
+export const titleLabels = {
+  'MEINE LEISTUNGEN': 'Meine Leistungen',
+  'SCHWANGERSCHAFT': 'Schwangerschaft',
+  'INDIVIDUELLE GEBURTSVORBEREITUNG': 'Individuelle Geburtsvorbereitung',
+  'WOCHENBETT': 'Wochenbett',
+  'STILLEN & ERNÄHRUNG': 'Stillen & Ernährung',
+  'RUND UMS BABY': 'Rund ums Baby',
+}
 export const startMarker = '<!-- marina-services:start -->'
 export const endMarker = '<!-- marina-services:end -->'
 
@@ -144,7 +152,7 @@ export function renderServices(data) {
   <summary aria-labelledby="leistung-${area.id}-title" aria-describedby="leistung-${area.id}-intro leistung-${area.id}-topics">
     <span class="marina-service-number" aria-hidden="true">${area.number}</span>
     <span class="marina-service-overview">
-      ${copy('span', key + '.title', area.title, ` class="marina-service-title" role="heading" aria-level="3" id="leistung-${area.id}-title"`)}
+      ${copy('span', key + '.title', titleLabels[area.title] || area.title, ` class="marina-service-title" role="heading" aria-level="3" id="leistung-${area.id}-title"`)}
       ${copy('span', key + '.preview.0', area.preview[0], ` class="marina-service-intro" id="leistung-${area.id}-intro"`)}
       ${copy('span', key + '.preview.1', area.preview[1], ` class="marina-service-topics" id="leistung-${area.id}-topics"`)}
     </span>
@@ -152,7 +160,10 @@ export function renderServices(data) {
   </summary>
   <div class="marina-service-body">
     <div class="marina-service-text">${blocks}</div>
-    <button class="marina-service-close" type="button" data-marina-close hidden>Weniger anzeigen ↑</button>
+    <div class="marina-service-footer">
+      <a class="marina-service-inquire" href="#kontakt" data-marina-inquire>Jetzt anfragen →</a>
+      <button class="marina-service-close" type="button" data-marina-close hidden>Weniger anzeigen ↑</button>
+    </div>
   </div>
 </details>`
   }).join('\n')
@@ -160,7 +171,7 @@ export function renderServices(data) {
 <section class="section marina-services-section" id="hebammenhilfe" aria-labelledby="marina-services-title" data-marina-services>
   <div class="container">
     <div class="marina-services-heading">
-      ${copy('h2', 'title', data.title, ' id="marina-services-title"')}
+      ${copy('h2', 'title', titleLabels[data.title] || data.title, ' id="marina-services-title"')}
       <div class="marina-services-introduction">
         ${data.introduction.map((text, i) => copy('p', 'introduction.' + i, text)).join('\n')}
       </div>

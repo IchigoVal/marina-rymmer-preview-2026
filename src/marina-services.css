@@ -12,17 +12,19 @@
 .marina-service summary::-webkit-details-marker { display: none; }
 .marina-service-number { display: grid; width: 3.1rem; height: 3.1rem; place-items: center; border-radius: 50%; background: rgba(173, 105, 86, .13); color: var(--clay-dark); font-family: 'Playfair Display', Georgia, serif; font-size: 1.55rem; font-variant-numeric: lining-nums tabular-nums; line-height: 1; }
 .marina-service-overview { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.35fr); align-items: center; min-width: 0; }
-.marina-service-title { display: block; padding-right: 1.5rem; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.2rem, 1.55vw, 1.5rem); font-weight: 600; line-height: 1.25; hyphens: auto; overflow-wrap: anywhere; text-wrap: balance; }
+.marina-service-title { display: block; padding-right: 1.5rem; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.25rem, 1.65vw, 1.6rem); font-weight: 600; letter-spacing: -.02em; line-height: 1.22; hyphens: auto; overflow-wrap: anywhere; text-wrap: balance; }
 .marina-service-intro, .marina-service-topics { display: block; grid-column: 2; padding-left: clamp(1.5rem, 3vw, 2.5rem); border-left: 1px solid rgba(173, 105, 86, .42); line-height: 1.5; }
 .marina-service-intro { align-self: end; font-size: .97rem; font-weight: 600; }
 .marina-service-topics { align-self: start; padding-top: .3rem; color: #625751; font-size: .86rem; }
 .marina-service-title { grid-row: 1 / 3; }
 .marina-service-action { display: grid; width: 2.75rem; height: 2.75rem; place-items: center; color: var(--clay-dark); }
 .marina-service-action [data-marina-action] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.marina-service-arrow { display: grid; width: 1.4rem; height: 1.4rem; place-items: center; font-size: 0; }
-.marina-service-arrow::before, .marina-service-arrow::after { grid-area: 1 / 1; width: 1.3rem; height: 2px; background: currentColor; content: ''; }
-.marina-service-arrow::after { transform: rotate(90deg); }
-.marina-service[open] .marina-service-arrow::after { display: none; }
+.marina-service-arrow { position: relative; display: block; width: 2rem; height: 2rem; border: 1px solid var(--line); border-radius: 50%; color: var(--clay-dark); font-size: 0; transition: background-color var(--motion-ui) var(--ease-ui), border-color var(--motion-ui) var(--ease-ui), color var(--motion-ui) var(--ease-ui); }
+.marina-service-arrow::before, .marina-service-arrow::after { position: absolute; top: calc(50% - .5px); left: calc(50% - 5px); width: 10px; height: 1px; background: currentColor; content: ''; }
+.marina-service-arrow::after { transform: rotate(90deg); transition: transform var(--motion-ui) var(--ease-ui); }
+.marina-service[open] .marina-service-arrow { background: var(--clay-dark); border-color: var(--clay-dark); color: var(--paper); }
+.marina-service[open] .marina-service-arrow::after { transform: rotate(0); }
+.marina-service summary:active .marina-service-arrow { background: var(--sand); color: var(--clay-dark); }
 .marina-service summary:focus-visible { outline-offset: -3px; border-radius: .5rem; }
 .marina-service-body { padding: 0 .7rem .7rem; }
 .marina-service-text { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem clamp(1.5rem, 3vw, 3rem); padding: clamp(1.5rem, 3vw, 2.5rem); border-radius: .3rem; background: #fcf6f3; font-size: .94rem; line-height: 1.75; hyphens: auto; overflow-wrap: anywhere; }
@@ -33,22 +35,15 @@
 .marina-service-text li { padding-left: .15rem; }
 .marina-service-text li::marker { color: var(--clay); }
 .marina-service-group p + ul { margin-top: .75rem; }
-.marina-service-close { min-height: 44px; margin: .6rem 1rem 0; padding: .5rem 0; background: transparent; color: var(--clay-dark); font-size: .8rem; text-decoration: underline; text-underline-offset: .3em; cursor: pointer; }
+.marina-service-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.5rem; margin: .45rem 1rem 0; }
+.marina-service-inquire, .marina-service-close { display: inline-flex; min-height: 44px; align-items: center; padding: .5rem 0; background: transparent; color: var(--clay-dark); font-size: .8rem; font-weight: 600; text-decoration: underline; text-underline-offset: .3em; cursor: pointer; }
+.marina-service-close { font-weight: 400; }
 .marina-service-close[hidden] { display: none; }
-@media (min-width: 1200px) {
-  #leistung-schwangerschaft .marina-service-text { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 1fr); gap: 0; }
-  #leistung-schwangerschaft .marina-service-group { padding: 0 1rem; border-left: 1px solid var(--line); }
-  #leistung-schwangerschaft .marina-service-group:first-child { padding-left: 0; border-left: 0; }
-  #leistung-schwangerschaft .marina-service-group:last-child { padding-right: 0; }
-}
 @media (hover: hover) {
   .marina-service summary { transition: background-color var(--motion-ui) var(--ease-ui); }
-  .marina-service-action { transition: color var(--motion-ui) var(--ease-ui); }
-  .marina-service-arrow { transition: transform var(--motion-ui) var(--ease-ui); }
   .marina-service:not([open]) summary:hover { background: rgba(173, 105, 86, .1); }
-  .marina-service:not([open]) summary:hover .marina-service-action { color: var(--cocoa); }
-  .marina-service:not([open]) summary:hover .marina-service-arrow { transform: scale(1.1); }
-  .marina-service summary:hover .marina-service-title, .marina-service-close:hover { color: var(--clay-dark); }
+  .marina-service summary:hover .marina-service-arrow { border-color: var(--clay-dark); }
+  .marina-service summary:hover .marina-service-title, .marina-service-inquire:hover, .marina-service-close:hover { color: var(--cocoa); }
 }
 @media (max-width: 959px) {
   .marina-services-heading { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -67,11 +62,12 @@
   .marina-service summary { grid-template-columns: 2rem minmax(0, 1fr) 2rem; align-items: start; gap: .5rem; padding: 1.1rem .75rem; }
   .marina-service-number { width: 2rem; height: 2rem; font-size: 1.1rem; }
   .marina-service-action { width: 2rem; height: 2rem; }
-  .marina-service-title { padding-top: .35rem; font-size: 1.05rem; }
+  .marina-service-title { padding-top: .25rem; font-size: 1.15rem; }
   .marina-service-intro { margin-top: .65rem; font-size: .92rem; }
   .marina-service-topics { font-size: .83rem; }
   .marina-service-text { grid-template-columns: 1fr; gap: 1.75rem; padding: 1.35rem 1.1rem; }
   .marina-service-body { padding: 0 .5rem .5rem; }
+  .marina-service-footer { margin-inline: .6rem; }
 }
 @media (max-width: 359px) {
   .marina-service summary { grid-template-columns: minmax(0, 1fr) 2rem; gap: .45rem .5rem; }

@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig({
-  base: '/marina-rymmer-preview-2026/',
+  base: './',
   build: {
     rollupOptions: {
       input: {
